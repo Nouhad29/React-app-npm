@@ -1,0 +1,35 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+# Dependencias instaladas: se pueden recuperar con npm install
+# No subir node_modules porque ocupa mucho espacio y contiene miles de archivos
+node_modules/
+
+
+dist
+
+# Build final del proyecto: se puede regenerar con npm run build
+# No subir dist porque contiene archivos generados automáticamente
+dist/
+
+
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
