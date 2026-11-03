@@ -4,12 +4,21 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
 import Confetti from 'react-confetti'
+import confetti from 'canvas-confetti'
 
 function App() {
   const [count, setCount] = useState(0)
-
   return (
     <>
+    <button onClick={() => {
+  confetti({
+    particleCount: 150,
+    spread: 80,
+    origin: { y: 0.6 }
+  })
+}}>
+  Pulsa click para lanzar confetti
+</button>
     <Confetti recycle={false} />
       <section id="center">
         <div className="hero">
