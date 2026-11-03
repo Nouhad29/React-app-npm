@@ -10,6 +10,7 @@ function App() {
 
   return (
     <>
+  
     <Confetti recycle={false} />
       <section id="center">
         <div className="hero">
