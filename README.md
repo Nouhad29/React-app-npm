@@ -34,3 +34,4 @@ Estos cambios sí se guardan en Git mediante un commit. La carpeta `node_modules
 ## Web desplegada
 
 [Ver proyecto en GitHub Pages]
+(https://nouhad29.github.io/react-app-deploy1/)
