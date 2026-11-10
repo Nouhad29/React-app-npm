@@ -14,7 +14,6 @@ export default function PlanetScene() {
 
     console.log("Init Main three.js scene");
 
-    // 1. Scene setup
     const scene = new THREE.Scene();
 
     const sizes = {
@@ -32,7 +31,6 @@ export default function PlanetScene() {
     camera.position.set(3, 1, 5);
     scene.add(camera);
 
-    // 2. Renderer
     const renderer = new THREE.WebGLRenderer({
       canvas: canvas,
       antialias: true,
@@ -42,7 +40,6 @@ export default function PlanetScene() {
     renderer.setSize(sizes.width, sizes.height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    // 3. Bloom effect
     const composer = new EffectComposer(renderer);
 
     const renderPass = new RenderPass(scene, camera);
@@ -57,14 +54,12 @@ export default function PlanetScene() {
     composer.addPass(renderPass);
     composer.addPass(bloomPass);
 
-    // 4. Animation variables
     const rotationSceneSpeed = 0.2;
     const clock = new THREE.Clock();
 
     let mixer = null;
     let lightPosition = null;
 
-    // 5. Process loaded model
     function onSceneLoaded(model) {
       scene.add(model);
 
@@ -98,7 +93,6 @@ export default function PlanetScene() {
       });
     }
 
-    // 6. Create lights
     function createLights() {
       const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
       scene.add(ambientLight);
@@ -115,7 +109,6 @@ export default function PlanetScene() {
       }
     }
 
-    // 7. Responsive camera
     function resize() {
       sizes.width = window.innerWidth;
       sizes.height = window.innerHeight;
@@ -140,8 +133,6 @@ export default function PlanetScene() {
     }
 
     window.addEventListener("resize", resize);
-
-    // 8. Load GLB model
     const loader = new GLTFLoader();
 
     const relativePath = '/EscenaMain-Rig.glb';
@@ -170,7 +161,6 @@ export default function PlanetScene() {
       }
     );
 
-    // 9. Animation loop
     function animate() {
       const deltaTime = clock.getDelta();
 
@@ -185,7 +175,6 @@ export default function PlanetScene() {
 
     renderer.setAnimationLoop(animate);
 
-    // 10. Cleanup
     return () => {
       window.removeEventListener("resize", resize);
 
